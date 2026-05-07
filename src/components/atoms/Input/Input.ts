@@ -9,11 +9,19 @@ export const Input = ({
   error = '',
   disabled = false,
   onChange,
-}: InputProps): HTMLInputElement => {
+  ariaLabel,
+  ariaDescribedBy,
+  ariaRequired,
+  ariaInvalid,
+}: InputProps): HTMLDivElement => {
 
+  // ─── Wrapper ───────────────────────────────────
+  const wrapper = document.createElement('div');
+  wrapper.className = 'input-wrapper';
+
+  // ─── Input ─────────────────────────────────────
   const input = document.createElement('input');
 
-  // ─── Classes ─────────────────────────────────────
   input.className = [
     'input',
     `input--${size}`,
@@ -21,22 +29,44 @@ export const Input = ({
     disabled ? 'input--disabled' : '',
   ].join(' ').trim();
 
-  // ─── Attributes ──────────────────────────────────
   input.type = type;
   input.placeholder = placeholder;
   input.value = value;
   input.disabled = disabled;
 
-  // ─── Accessibility ───────────────────────────────
+  // ─── Accessibility ─────────────────────────────
   input.setAttribute('aria-disabled', String(disabled));
-  if (error) {
+
+  if (ariaLabel) {
+    input.setAttribute('aria-label', ariaLabel);
+  }
+  if (ariaDescribedBy) {
+    input.setAttribute('aria-describedby', ariaDescribedBy);
+  }
+  if (ariaRequired) {
+    input.setAttribute('aria-required', String(ariaRequired));
+  }
+  if (error || ariaInvalid) {
     input.setAttribute('aria-invalid', 'true');
   }
 
-  // ─── Events ──────────────────────────────────────
+  // ─── onChange ──────────────────────────────────
   if (typeof onChange === 'function') {
     input.addEventListener('change', onChange);
   }
 
-  return input;
+  // ─── Error Message ─────────────────────────────
+  wrapper.appendChild(input);
+
+  if (error) {
+    const errorMsg = document.createElement('span');
+    errorMsg.className = 'input__error-msg';
+    errorMsg.textContent = error;
+    // Screen reader error message ke liye
+    errorMsg.setAttribute('role', 'alert');
+    errorMsg.id = ariaDescribedBy || 'input-error';
+    wrapper.appendChild(errorMsg);
+  }
+
+  return wrapper;
 };

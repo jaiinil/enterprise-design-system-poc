@@ -1,0 +1,75 @@
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+
+  // ─── Input Element ───────────────────────────────
+  .input {
+    width: 100%;
+    border: 1.5px solid #d1d5db;
+    border-radius: 6px;
+    font-family: inherit;
+    font-weight: 400;
+    color: #111827;
+    background: #ffffff;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &::placeholder {
+      color: #9ca3af;
+    }
+
+    // ─── Focus ─────────────────────────────────────
+    &:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    // ─── Sizes ─────────────────────────────────────
+    &--sm {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.75rem;
+      height: 32px;
+    }
+
+    &--md {
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+      height: 40px;
+    }
+
+    &--lg {
+      font-size: 1rem;
+      padding: 0.75rem 1.25rem;
+      height: 48px;
+    }
+
+    // ─── Error State ───────────────────────────────
+    &--error {
+      border-color: #ef4444;
+      background: #fff5f5;
+
+      &:focus {
+        border-color: #ef4444;
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+      }
+    }
+
+    // ─── Disabled State ────────────────────────────
+    &--disabled {
+      background: #f3f4f6;
+      color: #9ca3af;
+      cursor: not-allowed;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+  }
+
+  // ─── Error Message ─────────────────────────────
+  .input__error-msg {
+    font-size: 0.75rem;
+    color: #ef4444;
+    margin-top: 2px;
+  }
+}
