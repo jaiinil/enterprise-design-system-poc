@@ -1,83 +1,79 @@
 .button {
-  // Base styles
   display: inline-flex;
   align-items: center;
   justify-content: center;
   border: none;
-  border-radius: 6px;
-  font-family: inherit;
-  font-weight: 500;
+  border-radius: var(--sl-border-radius-medium);
+  font-family: var(--sl-font-sans);
+  font-weight: var(--sl-font-weight-semibold);
   cursor: pointer;
   transition: background 0.2s ease, opacity 0.2s ease;
 
   // ─── Sizes ───────────────────────────────────────
-
   &--sm {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.75rem;
+    font-size: var(--sl-font-size-small);
+    padding: var(--sl-spacing-x-small) var(--sl-spacing-small);
     height: 32px;
   }
 
   &--md {
-    font-size: 0.875rem;
-    padding: 0.5rem 1rem;
+    font-size: var(--sl-font-size-medium);
+    padding: var(--sl-spacing-small) var(--sl-spacing-medium);
     height: 40px;
   }
 
   &--lg {
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
+    font-size: var(--sl-font-size-large);
+    padding: var(--sl-spacing-medium) var(--sl-spacing-large);
     height: 48px;
   }
 
   // ─── Variants ────────────────────────────────────
-
   &--primary {
-    background: #3b82f6;
-    color: #ffffff;
+    background: var(--sl-color-primary-600);
+    color: var(--sl-color-neutral-0);
 
     &:hover {
-      background: #1d4ed8;
+      background: var(--sl-color-primary-700);
     }
 
     &:focus-visible {
-      outline: 2px solid #3b82f6;
+      outline: 2px solid var(--sl-color-primary-600);
       outline-offset: 2px;
     }
   }
 
   &--secondary {
     background: transparent;
-    color: #3b82f6;
-    border: 1.5px solid #3b82f6;
+    color: var(--sl-color-primary-600);
+    border: 1.5px solid var(--sl-color-primary-600);
 
     &:hover {
-      background: #dbeafe;
+      background: var(--sl-color-primary-50);
     }
 
     &:focus-visible {
-      outline: 2px solid #3b82f6;
+      outline: 2px solid var(--sl-color-primary-600);
       outline-offset: 2px;
     }
   }
 
   &--ghost {
     background: transparent;
-    color: #374151;
+    color: var(--sl-color-neutral-700);
     border: none;
 
     &:hover {
-      background: #f3f4f6;
+      background: var(--sl-color-neutral-100);
     }
 
     &:focus-visible {
-      outline: 2px solid #3b82f6;
+      outline: 2px solid var(--sl-color-primary-600);
       outline-offset: 2px;
     }
   }
 
   // ─── Disabled ────────────────────────────────────
-
   &--disabled {
     opacity: 0.5;
     cursor: not-allowed;

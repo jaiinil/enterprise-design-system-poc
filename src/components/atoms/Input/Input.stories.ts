@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/html";
-import type { InputProps } from "./input.type";
+import type { InputProps } from "./Input.type";
 import { Input } from "./Input";
 
 const meta: Meta<InputProps> = {

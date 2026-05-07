@@ -1,3 +1,5 @@
+/// <reference types="../src/types/declarations" />
+import '@shoelace-style/shoelace/dist/themes/light.css';
 import type { Preview } from '@storybook/html';
 
 const preview: Preview = {
@@ -9,9 +11,6 @@ const preview: Preview = {
       },
     },
     a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
       test: 'todo',
     },
   },
